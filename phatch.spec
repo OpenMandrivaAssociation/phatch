@@ -11,13 +11,9 @@ Release:	%{release}
 Source:		http://sd-2469.dedibox.fr/photobatch/download/package/%{name}-%{version}.tar.gz
 URL:		http://photobatch.stani.be/
 BuildRoot:	%_tmppath/%name-buildroot
-
 BuildRequires:  python >= 2.5
 BuildRequires:  desktop-file-utils
-
-Requires:	python >= 2.5
 Requires:	findutils
-Requires:	wxPythonGTK
 Requires:	python-imaging
 
 
@@ -48,10 +44,7 @@ version to batch photos on webservers.
 %package nautilus-bindings
 Summary:	Nautilus binding for Photo Batch Processor
 Group:		Graphics
-Requires:	python >= 2.5
-Requires:	findutils
-Requires:	wxpythongtk
-Requires:	python-imaging
+Requires:	wxPythonGTK
 Requires:	nautilus-python
 Requires:	%{name}
 %description nautilus-bindings
@@ -84,4 +77,8 @@ python setup.py install --root=%{buildroot}
 
 %clean
 %__rm -rf %{buildroot}
+
+%changelog
+* Sat Aug 01 2009 John Balcaen <mikala@mandriva.org>  0.1.6-1mdv2010.0
+ - initial import
 
