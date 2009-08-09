@@ -15,6 +15,7 @@ BuildRequires:  python >= 2.5
 BuildRequires:  desktop-file-utils
 Requires:	findutils
 Requires:	python-imaging
+Suggests:	pyexiv2
 
 
 %description
