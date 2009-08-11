@@ -11,11 +11,11 @@ Release:	%{release}
 Source:		http://sd-2469.dedibox.fr/photobatch/download/package/%{name}-%{version}.tar.gz
 URL:		http://photobatch.stani.be/
 BuildRoot:	%_tmppath/%name-buildroot
-BuildRequires:  python >= 2.5
+BuildRequires:  python-devel >= 2.5
 BuildRequires:  desktop-file-utils
 Requires:	findutils
 Requires:	python-imaging
-Suggests:	pyexiv2
+Suggests:	python-exiv2
 
 
 %description
