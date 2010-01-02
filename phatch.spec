@@ -1,6 +1,6 @@
 %define name phatch
 %define version 0.1.6
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary:	Photo Batch Processor
 Name:		%{name}
@@ -15,6 +15,7 @@ BuildRequires:  python-devel >= 2.5
 BuildRequires:  desktop-file-utils
 Requires:	findutils
 Requires:	python-imaging
+Requires:	wxPythonGTK
 Suggests:	python-exiv2
 
 
@@ -78,8 +79,3 @@ python setup.py install --root=%{buildroot}
 
 %clean
 %__rm -rf %{buildroot}
-
-%changelog
-* Sat Aug 01 2009 John Balcaen <mikala@mandriva.org>  0.1.6-1mdv2010.0
- - initial import
-
