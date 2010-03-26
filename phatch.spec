@@ -1,22 +1,23 @@
 %define name phatch
-%define version 0.1.6
-%define release %mkrel 2
+%define version 0.2.7.1
+%define release %mkrel 1
 
 Summary:	Photo Batch Processor
 Name:		%{name}
 Version:	%{version}
-License:	GPLv2+
+License:	GPLv3+
 Group:		Graphics
 Release:	%{release}
-Source:		http://sd-2469.dedibox.fr/photobatch/download/package/%{name}-%{version}.tar.gz
+Source:		http://photobatch.stani.be/download/package/%{name}-%{version}.tar.gz
 URL:		http://photobatch.stani.be/
-BuildRoot:	%_tmppath/%name-buildroot
-BuildRequires:  python-devel >= 2.5
-BuildRequires:  desktop-file-utils
+BuildRequires:	python-devel >= 2.5
+BuildRequires:	desktop-file-utils
+BuildRequires:	python-sphinx
 Requires:	findutils
 Requires:	python-imaging
+Requires:	python-notify
 Requires:	wxPythonGTK
-Suggests:	python-exiv2
+Requires:	python-exiv2
 
 
 %description
@@ -37,18 +38,21 @@ version to batch photos on webservers.
 %{_datadir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/applications/%{name}-inspector.desktop
 %{_datadir}/mime/packages/%{name}.xml
 %{_mandir}/man1/%{name}.1.lzma
 %{_datadir}/pixmaps/%{name}.png
-%{_datadir}/icons/hicolor/48x48/apps/%{name}.png
-%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+%{_datadir}/pixmaps/%{name}-inspector.png
+%{_datadir}/icons/hicolor/*/apps/%{name}*.png
+%{_datadir}/icons/hicolor/scalable/apps/%{name}*.svg 
+
 
 %package nautilus-bindings
 Summary:	Nautilus binding for Photo Batch Processor
 Group:		Graphics
 Requires:	wxPythonGTK
 Requires:	nautilus-python
-Requires:	%{name}
+Requires:	%{name} 
 %description nautilus-bindings
 
 This package provides nautilus binding for Photo Batch Processor.
@@ -56,12 +60,26 @@ This package provides nautilus binding for Photo Batch Processor.
 %files nautilus-bindings
 %defattr(-,root,root,-)
 %doc AUTHORS COPYING README
-%{_libdir}/nautilus/extension-2.0/python/phatch_image_inspector.py
-%{_libdir}/nautilus/extension-2.0/python/phatch_recent.py
+%{py_puresitedir}/%{name}/lib/linux/nautilusExtension.py
+
+
+%package doc
+Summary:	Documentation for Photo Batch Processor
+Group:		Graphics
+Requires:	%{name}
+%description doc
+
+This package provides the html documentation for Photo Batch Processor.
+
+%files doc
+%defattr(-,root,root,-)
+%{_datadir}/%{name}/doc/html
+
+#-----------------------------------------------------------------------
 
 %prep
 
-%setup -q
+%setup -q -n %{name}-0.2.7
 
 %build
 
@@ -69,11 +87,12 @@ This package provides nautilus binding for Photo Batch Processor.
 %__rm -rf %{buildroot}
 python setup.py install --root=%{buildroot}
 
-# Creating directory for nautilus bindings and moving files
-
-%__mkdir -p %{buildroot}/%{_libdir}/nautilus/extension-2.0/python
-%__mv %{buildroot}/%{_prefix}/phatch_*.py %{buildroot}/%{_libdir}/nautilus/extension-2.0/python
-
+# Building documentation
+cd docs
+make html
+%__mkdir -p %{buildroot}/%{_datadir}/%{name}/doc
+%__mv build/html  %{buildroot}/%{_datadir}/%{name}/doc
+cd ..
 %find_lang %{name}
 
 
