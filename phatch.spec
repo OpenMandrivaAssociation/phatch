@@ -13,6 +13,7 @@ URL:		http://photobatch.stani.be/
 BuildRequires:	python-devel >= 2.5
 BuildRequires:	desktop-file-utils
 BuildRequires:	python-sphinx
+BuildRequires:	mlocate
 Requires:	findutils
 Requires:	python-imaging
 Requires:	python-notify
