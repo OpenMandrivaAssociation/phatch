@@ -41,11 +41,10 @@ version to batch photos on webservers.
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}-inspector.desktop
 %{_datadir}/mime/packages/%{name}.xml
-%{_mandir}/man1/%{name}.1.lzma
+%{_mandir}/man1/%{name}.1.*
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/pixmaps/%{name}-inspector.png
-%{_datadir}/icons/hicolor/*/apps/%{name}*.png
-%{_datadir}/icons/hicolor/scalable/apps/%{name}*.svg 
+%{_datadir}/icons/hicolor/*/apps/%{name}.*
 
 
 %package nautilus-bindings
