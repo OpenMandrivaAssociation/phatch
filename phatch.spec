@@ -44,8 +44,7 @@ version to batch photos on webservers.
 %{_mandir}/man1/%{name}.1.*
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/pixmaps/%{name}-inspector.png
-%{_datadir}/icons/hicolor/*/apps/%{name}.*
-
+%{_iconsdir}/hicolor/*/apps/*
 
 %package nautilus-bindings
 Summary:	Nautilus binding for Photo Batch Processor
