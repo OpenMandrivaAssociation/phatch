@@ -5,7 +5,7 @@ Name:		phatch
 Version:	0.2.7.1
 License:	GPLv3+
 Group:		Graphics
-Release:	2
+Release:	3
 Source:		http://photobatch.stani.be/download/package/%{name}-%{version}.tar.gz
 URL:		http://photobatch.stani.be/
 BuildRequires:	python-devel >= 2.5
