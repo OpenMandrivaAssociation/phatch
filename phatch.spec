@@ -7,7 +7,7 @@ License:	GPLv3+
 Group:		Graphics
 Release:	3
 Source:		http://photobatch.stani.be/download/package/%{name}-%{version}.tar.gz
-URL:		http://photobatch.stani.be/
+URL:		https://photobatch.stani.be/
 BuildRequires:	python-devel >= 2.5
 BuildRequires:	desktop-file-utils
 BuildRequires:	python-sphinx
