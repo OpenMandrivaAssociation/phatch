@@ -8,6 +8,7 @@ Group:		Graphics
 Release:	3
 Source:		http://photobatch.stani.be/download/package/%{name}-%{version}.tar.gz
 URL:		https://photobatch.stani.be/
+BuildRequires:	make
 BuildRequires:	python-devel >= 2.5
 BuildRequires:	desktop-file-utils
 BuildRequires:	python-sphinx
